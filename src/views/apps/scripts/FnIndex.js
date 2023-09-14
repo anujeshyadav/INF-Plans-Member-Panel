@@ -46,9 +46,69 @@ class FnIndex extends React.Component {
       },
 
       {
-        headerName: "Script Name",
+        headerName: "Details",
         field: "scriptName",
-        width: 400,
+        width: 300,
+        cellRendererFramework: (params) => {
+          return (
+            <div className="d-flex align-items-center cursor-pointer">
+              <span>{params.data.scriptName}</span>
+            </div>
+          );
+        },
+      },
+      {
+        headerName: "Purchase Date",
+        field: "scriptName",
+        width: 160,
+        cellRendererFramework: (params) => {
+          return (
+            <div className="d-flex align-items-center cursor-pointer">
+              <span>{params.data.scriptName}</span>
+            </div>
+          );
+        },
+      },
+      {
+        headerName: "Name",
+        field: "scriptName",
+        width: 160,
+        cellRendererFramework: (params) => {
+          return (
+            <div className="d-flex align-items-center cursor-pointer">
+              <span>{params.data.scriptName}</span>
+            </div>
+          );
+        },
+      },
+      {
+        headerName: "Start Date",
+        field: "scriptName",
+        width: 160,
+        cellRendererFramework: (params) => {
+          return (
+            <div className="d-flex align-items-center cursor-pointer">
+              <span>{params.data.scriptName}</span>
+            </div>
+          );
+        },
+      },
+      {
+        headerName: "End Date",
+        field: "scriptName",
+        width: 160,
+        cellRendererFramework: (params) => {
+          return (
+            <div className="d-flex align-items-center cursor-pointer">
+              <span>{params.data.scriptName}</span>
+            </div>
+          );
+        },
+      },
+      {
+        headerName: "Plan Name",
+        field: "scriptName",
+        width: 160,
         cellRendererFramework: (params) => {
           return (
             <div className="d-flex align-items-center cursor-pointer">
@@ -193,7 +253,7 @@ class FnIndex extends React.Component {
             <Row className="m-2">
               <Col>
                 <h1 sm="6" className="float-left">
-                  In Active Plan List
+                  Expired Plans
                 </h1>
               </Col>
               {/* <Col className="pt-4">

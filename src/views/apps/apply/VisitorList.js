@@ -246,21 +246,24 @@ class VisitorList extends React.Component {
             <Row className="m-2">
               <Col>
                 <h1 sm="6" className="float-left">
-                  Visitor List
+                  Prescription list
                 </h1>
               </Col>
-              {/* <Col className="pt-4">
+              <Col className="pt-4">
                 <Route
                   render={({ history }) => (
                     <Button
-                      className=" btn btn-success float-right"
-                      onClick={() => history.push("/app/plan/addPlan")}
+                      color="primary"
+                      className=" float-right"
+                      onClick={() =>
+                        history.push("/app/plan/ComparePrescription")
+                      }
                     >
-                      Add Plan
+                      Compare Prescription
                     </Button>
                   )}
                 />
-              </Col> */}
+              </Col>
             </Row>
             <CardBody>
               {this.state.rowData === null ? null : (

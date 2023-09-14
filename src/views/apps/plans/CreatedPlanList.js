@@ -7,75 +7,167 @@ import {
   Col,
   Button,
   UncontrolledDropdown,
+  Dropdown,
   DropdownMenu,
   DropdownItem,
   DropdownToggle,
   Form,
   Label,
+  Badge,
+  UncontrolledButtonDropdown,
 } from "reactstrap";
+
+import PropTypes from "prop-types";
 import axiosConfig from "../../../axiosConfig";
 import { ContextLayout } from "../../../utility/context/Layout";
 import { AgGridReact } from "ag-grid-react";
 import { Edit, Trash2, ChevronDown } from "react-feather";
+// import { ChevronDown } from "react-feather";
 import "../../../assets/scss/plugins/tables/_agGridStyleOverride.scss";
 import "../../../assets/scss/pages/users.scss";
 import { Route } from "react-router-dom";
 import swal from "sweetalert";
 import ReactHtmlParser from "react-html-parser";
+import { PolicyCancel } from "./PolicyCancel";
+
 class CreatedPlanList extends React.Component {
-  state = {
-    rowData: [],
-    paginationPageSize: 20,
-    currenPageSize: "",
-    getPageSize: "",
-    defaultColDef: {
-      sortable: true,
-      editable: true,
-      resizable: true,
-      suppressMenu: true,
-    },
+  constructor(props) {
+    super(props);
 
-    columnDefs: [
-      {
-        headerName: "S.No",
-        valueGetter: "node.rowIndex + 1",
-        field: "node.rowIndex + 1",
-        width: 100,
-        filter: true,
-      },
-      {
-        headerName: "Plan Name",
-        field: "planname",
-        width: 150,
-        cellRendererFramework: (params) => {
-          return (
-            <div className="d-flex align-items-center cursor-pointer">
-              <span>{params.data.planName}</span>
-            </div>
-          );
-        },
-      },
-      {
-        headerName: "Description",
-        field: "description",
-        width: 150,
-        cellRendererFramework: (params) => {
-          return (
-            <div className="d-flex align-items-center cursor-pointer">
-              <span>{ReactHtmlParser(params.data.desc)}</span>
-            </div>
-          );
-        },
+    this.state = {
+      dropdownOpen: false,
+      rowData: [],
+      paginationPageSize: 20,
+      currenPageSize: "",
+      getPageSize: "",
+      defaultColDef: {
+        sortable: true,
+        // editable: true,
+        resizable: true,
+        suppressMenu: true,
       },
 
-      {
-        headerName: "Actions",
-        field: "sortorder",
-        width: 250,
-        cellRendererFramework: (params) => {
-          return (
-            <div className="actions cursor-pointer">
-              <Route
+      columnDefs: [
+        {
+          headerName: "S.No",
+          valueGetter: "node.rowIndex + 1",
+          field: "node.rowIndex + 1",
+          width: 100,
+          filter: true,
+          // checkboxSelection: true,
+          // headerCheckboxSelectionFilteredOnly: true,
+          // headerCheckboxSelection: true,
+        },
+
+        {
+          headerName: "Details",
+          field: "scriptName",
+          width: 120,
+          cellRendererFramework: (params) => {
+            return (
+              <div className="d-flex align-items-center cursor-pointer">
+                <span>{params.data.scriptName}</span>
+              </div>
+            );
+          },
+        },
+        {
+          headerName: "Purchase Date",
+          field: "scriptName",
+          width: 160,
+          cellRendererFramework: (params) => {
+            return (
+              <div className="d-flex align-items-center cursor-pointer">
+                <span>{params.data.scriptName}</span>
+              </div>
+            );
+          },
+        },
+        {
+          headerName: "Name",
+          field: "scriptName",
+          width: 160,
+          cellRendererFramework: (params) => {
+            return (
+              <div className="d-flex align-items-center cursor-pointer">
+                <span>{params.data.scriptName}</span>
+              </div>
+            );
+          },
+        },
+        {
+          headerName: "Start Date",
+          field: "scriptName",
+          width: 160,
+          cellRendererFramework: (params) => {
+            return (
+              <div className="d-flex align-items-center cursor-pointer">
+                <span>{params.data.scriptName}</span>
+              </div>
+            );
+          },
+        },
+        {
+          headerName: "End Date",
+          field: "scriptName",
+          width: 160,
+          cellRendererFramework: (params) => {
+            return (
+              <div className="d-flex align-items-center cursor-pointer">
+                <span>{params.data.scriptName}</span>
+              </div>
+            );
+          },
+        },
+        {
+          headerName: "Plan Name",
+          field: "scriptName",
+          width: 160,
+          cellRendererFramework: (params) => {
+            return (
+              <div className="d-flex align-items-center cursor-pointer">
+                <span>{params.data.scriptName}</span>
+              </div>
+            );
+          },
+        },
+
+        {
+          headerName: "Actions",
+          field: "sortorder",
+          width: 600,
+          cellRendererFramework: (params) => {
+            return (
+              <div className="actions cursor-pointer">
+                <select id="cars">
+                  <option value="volvo">--Select--</option>
+                  <option value="saab">Plan Document</option>
+                  <option value="opel">ContactDoctor(nonInsurance)</option>
+                </select>
+                {/* <div className="dropdown mr-1 mb-1 d-inline-block">
+                  <UncontrolledButtonDropdown>
+                    <DropdownToggle color="primary" size="sm" caret>
+                      Select
+                      <ChevronDown size={15} />
+                    </DropdownToggle>
+                    <DropdownMenu>
+                      <DropdownItem tag="a">Option 1</DropdownItem>
+                      <DropdownItem tag="a">Option 2</DropdownItem>
+                      <DropdownItem tag="a">Option 3</DropdownItem>
+                    </DropdownMenu>
+                  </UncontrolledButtonDropdown>
+                </div> */}
+
+                <Button size="sm" className="mx-1" color="primary" outline>
+                  Legacy Claim
+                </Button>
+                <Button size="sm" className="mx-1" color="primary" outline>
+                  Claim
+                </Button>
+                <Button size="sm" className="mx-1" color="success" outline>
+                  Extend
+                </Button>
+                {/* <Route
                 render={({ history }) => (
                   <Edit
                     className="mr-50"
@@ -95,13 +187,21 @@ class CreatedPlanList extends React.Component {
                 onClick={() => {
                   this.runthisfunction(params.data._id);
                 }}
-              />
-            </div>
-          );
+              /> */}
+              </div>
+            );
+          },
         },
-      },
-    ],
-  };
+      ],
+    };
+    this.toggle = this.toggle.bind(this);
+  }
+  toggle() {
+    console.log("object", this.state.dropdownOpen);
+    this.setState((prevState) => ({
+      dropdownOpen: !prevState.dropdownOpen,
+    }));
+  }
   componentDidMount() {
     this.getOptionDataList();
   }
@@ -109,7 +209,7 @@ class CreatedPlanList extends React.Component {
   getOptionDataList = () => {
     axiosConfig.get(`/user/infPlanList`).then((response) => {
       //   console.log(response.data);
-      const rowData = response.data;
+      const rowData = response.data.slice(0, 1);
       this.setState({ rowData });
     });
   };
@@ -197,10 +297,10 @@ class CreatedPlanList extends React.Component {
             <Row className="m-2">
               <Col>
                 <h1 sm="6" className="float-left">
-                  Create Plan List
+                  Active Plans
                 </h1>
               </Col>
-              <Col className="">
+              {/* <Col className="">
                 <Route
                   render={({ history }) => (
                     <Button
@@ -211,7 +311,7 @@ class CreatedPlanList extends React.Component {
                     </Button>
                   )}
                 />
-              </Col>
+              </Col> */}
             </Row>
             <CardBody>
               {this.state.rowData === null ? null : (
@@ -281,32 +381,39 @@ class CreatedPlanList extends React.Component {
                       </div>
                     </div>
                   </div>
-                  <ContextLayout.Consumer>
-                    {(context) => (
-                      <AgGridReact
-                        gridOptions={{}}
-                        rowSelection="multiple"
-                        defaultColDef={defaultColDef}
-                        columnDefs={columnDefs}
-                        rowData={rowData}
-                        onGridReady={this.onGridReady}
-                        colResizeDefault={"shift"}
-                        animateRows={true}
-                        floatingFilter={false}
-                        pagination={true}
-                        paginationPageSize={this.state.paginationPageSize}
-                        pivotPanelShow="always"
-                        enableRtl={context.state.direction === "rtl"}
-                      />
-                    )}
-                  </ContextLayout.Consumer>
+                  <div style={{ height: "600px" }}>
+                    <ContextLayout.Consumer>
+                      {(context) => (
+                        <AgGridReact
+                          // style={{height:"300px"}}
+                          gridOptions={{}}
+                          rowSelection="multiple"
+                          defaultColDef={defaultColDef}
+                          columnDefs={columnDefs}
+                          rowData={rowData}
+                          onGridReady={this.onGridReady}
+                          colResizeDefault={"shift"}
+                          animateRows={true}
+                          floatingFilter={false}
+                          pagination={true}
+                          paginationPageSize={this.state.paginationPageSize}
+                          pivotPanelShow="always"
+                          enableRtl={context.state.direction === "rtl"}
+                        />
+                      )}
+                    </ContextLayout.Consumer>
+                  </div>
                 </div>
               )}
             </CardBody>
+            <div className="policycancel">
+              <PolicyCancel />
+            </div>
           </Card>
         </Col>
       </Row>
     );
   }
 }
+
 export default CreatedPlanList;

@@ -43,10 +43,47 @@ class PlanList extends React.Component {
         // headerCheckboxSelectionFilteredOnly: true,
         // headerCheckboxSelection: true,
       },
+
+      {
+        headerName: "Details",
+        field: "scriptName",
+        width: 120,
+        cellRendererFramework: (params) => {
+          return (
+            <div className="d-flex align-items-center cursor-pointer">
+              <span>{params.data.scriptName}</span>
+            </div>
+          );
+        },
+      },
+      {
+        headerName: "Purchase Date",
+        field: "scriptName",
+        width: 160,
+        cellRendererFramework: (params) => {
+          return (
+            <div className="d-flex align-items-center cursor-pointer">
+              <span>{params.data.scriptName}</span>
+            </div>
+          );
+        },
+      },
+      {
+        headerName: "Name",
+        field: "scriptName",
+        width: 160,
+        cellRendererFramework: (params) => {
+          return (
+            <div className="d-flex align-items-center cursor-pointer">
+              <span>{params.data.scriptName}</span>
+            </div>
+          );
+        },
+      },
       {
         headerName: "Start Date",
-        field: "StartDate",
-        width: 150,
+        field: "scriptName",
+        width: 160,
         cellRendererFramework: (params) => {
           return (
             <div className="d-flex align-items-center cursor-pointer">
@@ -57,8 +94,8 @@ class PlanList extends React.Component {
       },
       {
         headerName: "End Date",
-        field: "EndDate",
-        width: 150,
+        field: "scriptName",
+        width: 160,
         cellRendererFramework: (params) => {
           return (
             <div className="d-flex align-items-center cursor-pointer">
@@ -68,21 +105,9 @@ class PlanList extends React.Component {
         },
       },
       {
-        headerName: "Coverage Area",
-        field: "Coverage",
-        width: 150,
-        cellRendererFramework: (params) => {
-          return (
-            <div className="d-flex align-items-center cursor-pointer">
-              <span>{params.data.scriptName}</span>
-            </div>
-          );
-        },
-      },
-      {
-        headerName: "Maximum",
-        field: "Maximum",
-        width: 150,
+        headerName: "Plan Name",
+        field: "scriptName",
+        width: 160,
         cellRendererFramework: (params) => {
           return (
             <div className="d-flex align-items-center cursor-pointer">
@@ -126,18 +151,20 @@ class PlanList extends React.Component {
               /> */}
               <Route
                 render={({ history }) => (
-                  <Edit
+                  <Button
                     className="mr-50"
                     size="25px"
-                    color="blue"
+                    color="primary"
                     onClick={() =>
                       history.push(`/app/scripts/editOption/${params.data._id}`)
                     }
-                  />
+                  >
+                    Prefilled Application
+                  </Button>
                 )}
               />
 
-              <Trash2
+              {/* <Trash2
                 size={20}
                 color="red"
                 onClick={() => {
@@ -145,7 +172,7 @@ class PlanList extends React.Component {
                   this.runthisfunction(params.data._id);
                   // this.gridApi.updateRowData({ remove: selectedData });
                 }}
-              />
+              /> */}
             </div>
           );
         },
@@ -222,7 +249,7 @@ class PlanList extends React.Component {
             <Row className="m-2">
               <Col>
                 <h1 sm="6" className="float-left">
-                  PaymentHistory List
+                  Continue Any Application
                 </h1>
               </Col>
               {/* <Col className="pt-4">

@@ -46,114 +46,91 @@ class ViewClaims extends React.Component {
         field: "node.rowIndex + 1",
         width: 100,
         filter: true,
+        // checkboxSelection: true,
+        // headerCheckboxSelectionFilteredOnly: true,
+        // headerCheckboxSelection: true,
       },
 
       {
-        headerName: "Policy No",
-        field: "script_type",
-        width: 140,
-        cellRendererFramework: (params) => {
-          return (
-            <div className="d-flex  align-items-center cursor-pointer">
-              {/* <span>{params.data.script_type}</span> */}
-            </div>
-          );
-        },
-      },
-
-      {
-        headerName: "Product Name",
+        headerName: "Details",
         field: "scriptName",
-        width: 140,
-        cellRendererFramework: (params) => {
-          return (
-            <div className="d-flex  align-items-center cursor-pointer">
-              <span>{params.data.fnoindex_scrpt_name?.scriptName}</span>
-            </div>
-          );
-        },
-      },
-
-      {
-        headerName: "Order No",
-        field: "Order",
-        width: 140,
+        width: 120,
         cellRendererFramework: (params) => {
           return (
             <div className="d-flex align-items-center cursor-pointer">
-              <span>{params.data.type}</span>
+              <span>{params.data.scriptName}</span>
             </div>
           );
         },
       },
       {
-        headerName: "Order Date(yy-mm-dd)",
-        field: "Date",
-        width: 140,
+        headerName: "Claim No.",
+        field: "scriptName",
+        width: 160,
         cellRendererFramework: (params) => {
           return (
             <div className="d-flex align-items-center cursor-pointer">
-              <span>{params.data.call_type}</span>
+              <span>{params.data.scriptName}</span>
             </div>
           );
         },
       },
       {
-        headerName: "Insured(Full Name)",
-        field: "active_value",
-        width: 140,
+        headerName: "Claim Applied",
+        field: "scriptName",
+        width: 160,
         cellRendererFramework: (params) => {
           return (
             <div className="d-flex align-items-center cursor-pointer">
-              <span>{params.data.active_value}</span>
+              <span>{params.data.scriptName}</span>
             </div>
           );
         },
       },
       {
-        headerName: "Email",
-        field: "active_value2",
-        width: 140,
+        headerName: "Name",
+        field: "scriptName",
+        width: 160,
         cellRendererFramework: (params) => {
           return (
             <div className="d-flex align-items-center cursor-pointer">
-              <span>{params.data.active_value2}</span>
+              <span>{params.data.scriptName}</span>
             </div>
           );
         },
       },
       {
-        headerName: " Age",
-        field: "SL",
-        width: 140,
+        headerName: "Start Date",
+        field: "scriptName",
+        width: 160,
         cellRendererFramework: (params) => {
           return (
             <div className="d-flex align-items-center cursor-pointer">
-              <span>{params.data.SL}</span>
+              <span>{params.data.scriptName}</span>
             </div>
           );
         },
       },
       {
-        headerName: "Industry",
-        field: "trl",
-        width: 140,
+        headerName: "End Date",
+        field: "scriptName",
+        width: 160,
         cellRendererFramework: (params) => {
           return (
             <div className="d-flex align-items-center cursor-pointer">
-              <span>{params.data.trl}</span>
+              <span>{params.data.scriptName}</span>
             </div>
           );
         },
       },
       {
-        headerName: "Home Country",
-        field: "Country",
-        width: 140,
+        headerName: "Policy Name",
+        field: "scriptName",
+        width: 160,
         cellRendererFramework: (params) => {
           return (
             <div className="d-flex align-items-center cursor-pointer">
-              <span>{params.data.T1}</span>
+              <span>{params.data.scriptName}</span>
             </div>
           );
         },
@@ -308,7 +285,7 @@ class ViewClaims extends React.Component {
         <Col lg="12" md="12" sm="12">
           <Card>
             <h1 col-sm-6 className=" p-2">
-              ViewClaims
+              View Your Claim Status
             </h1>
             {/* <Row>
               <Col lg="6" md="6" sm="6" className="mb-2 ml-2">

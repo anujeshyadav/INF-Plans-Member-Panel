@@ -229,8 +229,11 @@ class PlanList extends React.Component {
                 <Route
                   render={({ history }) => (
                     <Button
-                      className=" btn btn-success float-right"
-                      onClick={() => history.push("/app/plan/addPlan")}
+                      target="_blank"
+                      color="primary"
+                      className="float-right"
+                      onClick={() => window.open("#/app/plan/addPlan")}
+                      // onClick={() => history.push("/app/plan/addPlan")}
                     >
                       Add Plan
                     </Button>

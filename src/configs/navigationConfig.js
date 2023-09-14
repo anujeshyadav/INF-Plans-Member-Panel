@@ -22,7 +22,7 @@ const navigationConfig = [
     id: "InactivePlans",
     title: "INACTIVE PLANS",
     type: "item",
-    icon: <RxTimer size={20} color="yellow" />,
+    icon: <RxTimer size={20} color="primary" />,
     permissions: ["admin", "editor"],
     navLink: "/app/scripts/fnIndex",
   },

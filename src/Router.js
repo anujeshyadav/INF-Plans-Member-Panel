@@ -113,6 +113,9 @@ const EditFnIndex = lazy(() => import("./views/apps/scripts/EditFnIndex"));
 
 const PlanList = lazy(() => import("./views/apps/plans/PlanList"));
 const AddPlan = lazy(() => import("./views/apps/plans/AddPlan"));
+const ComparePrescription = lazy(() =>
+  import("./views/apps/plans/ComparePrescription")
+);
 const EditPlan = lazy(() => import("./views/apps/plans/EditPlan"));
 
 // create Plan
@@ -610,7 +613,11 @@ class AppRouter extends React.Component {
             />
             {/* PlanList */}
             <AppRoute path="/app/plans/PlanList" component={PlanList} />
-            <AppRoute path="/app/plan/addPlan" component={AddPlan} />
+            <AppRoute fullLayout path="/app/plan/addPlan" component={AddPlan} />
+            <AppRoute
+              path="/app/plan/ComparePrescription"
+              component={ComparePrescription}
+            />
             <AppRoute path="/app/plans/editPlan/:id" component={EditPlan} />
             <AppRoute
               path="/app/plans/EliteNetworkList"

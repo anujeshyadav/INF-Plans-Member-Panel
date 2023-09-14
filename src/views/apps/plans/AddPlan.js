@@ -15,6 +15,7 @@ import axiosConfig from "../../../axiosConfig";
 import { history } from "../../../history";
 import swal from "sweetalert";
 import { Route } from "react-router-dom";
+import GetnewPlans from "./GetnewPlans";
 
 export default class AddFnoOption extends Component {
   constructor(props) {
@@ -48,23 +49,26 @@ export default class AddFnoOption extends Component {
   render() {
     return (
       <div>
-        <Row>
-          <Col sm="12">
+        {/* <Row> */}
+        {/* <Col sm="12">
             <div>
               <Breadcrumb listTag="div">
                 <BreadcrumbItem href="/analyticsDashboard" tag="a">
                   Home
                 </BreadcrumbItem>
                 <BreadcrumbItem href="/app/scripts/fnoOption" tag="a">
-                  FNO Option List
+                  Add Plan
                 </BreadcrumbItem>
-                <BreadcrumbItem active>Add FNO Option</BreadcrumbItem>
+                <BreadcrumbItem active>Add </BreadcrumbItem>
               </Breadcrumb>
             </div>
-          </Col>
-        </Row>
+          </Col> */}
+        {/* </Row> */}
         <Card>
-          <Row className="m-2">
+          <div className="mainheadingadd">
+            <GetnewPlans />
+          </div>
+          {/* <Row className="m-2">
             <Col>
               <h1 col-sm-6 className="float-left">
                 Add Plan
@@ -94,7 +98,6 @@ export default class AddFnoOption extends Component {
                     name="scriptName"
                     min="2023-04-06"
                     max="2099-12-31"
-                    // placeholder="Script Name"
                     value={this.state.scriptName}
                     onChange={this.changeHandler}
                   ></Input>
@@ -119,8 +122,6 @@ export default class AddFnoOption extends Component {
                     // value={this.state.script_type}
                     // onChange={this.changeHandler}
                   >
-                    {/* <option>Area</option> */}
-
                     <option>USA/CANADA/WorldWide</option>
                     <option>WorldWide/Travel</option>
                   </Input>
@@ -149,29 +150,7 @@ export default class AddFnoOption extends Component {
                     onChange={this.changeHandler}
                   ></Input>
                 </Col>
-                {/* <Col lg="6" md="6" sm="6" className="mb-2">
-                  <Label className="mb-1">Status</Label>
-                  <div
-                    className="form-label-group"
-                    onChange={(e) => this.changeHandler1(e)}
-                  >
-                    <input
-                      style={{ marginRight: "3px" }}
-                      type="radio"
-                      name="status"
-                      value="Active"
-                    />
-                    <span style={{ marginRight: "20px" }}>Active</span>
-
-                    <input
-                      style={{ marginRight: "3px" }}
-                      type="radio"
-                      name="status"
-                      value="Inactive"
-                    />
-                    <span style={{ marginRight: "3px" }}>Inactive</span>
-                  </div>
-                </Col> */}
+              
               </Row>
               <Row>
                 <Col lg="6" md="6" sm="6" className="mb-2">
@@ -185,7 +164,7 @@ export default class AddFnoOption extends Component {
                 </Col>
               </Row>
             </Form>
-          </CardBody>
+          </CardBody> */}
         </Card>
       </div>
     );

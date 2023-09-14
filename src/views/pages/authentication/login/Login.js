@@ -11,6 +11,7 @@ import {
   TabPane,
 } from "reactstrap";
 import loginImg from "../../../../assets/img/pages/login.png";
+import logo from "../../../../assets/img/logo/inf-logo.png";
 import "../../../../assets/scss/pages/authentication.scss";
 import LoginJWT from "./LoginJWT";
 
@@ -27,7 +28,10 @@ class Login extends React.Component {
   };
   render() {
     return (
-      <Row className="m-0 justify-content-center">
+      <Row
+        // style={{ borderRadius: "12px" }}
+        className="m-0 justify-content-center"
+      >
         <Col
           sm="8"
           xl="7"
@@ -39,9 +43,16 @@ class Login extends React.Component {
             <Row className="m-0">
               <Col
                 lg="6"
+                sm="6"
                 className="d-lg-block d-none text-center align-self-center px-1 py-0"
               >
-                <img src={loginImg} alt="loginImg" />
+                <img
+                  src={logo}
+                  width="100%"
+                  style={{ padding: "50px 50px" }}
+                  alt="loginImg"
+                />
+                {/* <img src={loginImg} alt="loginImg" /> */}
               </Col>
               <Col lg="6" md="12" className="p-0">
                 <Card className="rounded-0 mb-0 px-2 login-tabs-container">
@@ -51,7 +62,9 @@ class Login extends React.Component {
                     </CardTitle>
                   </CardHeader>
                   <p className="px-2 auth-title">
-                    Welcome back, please login to your AES account.
+                    Welcome to the Insured Portal. Extend existing plans, apply
+                    for new plans, print ID cards, Dental and Vision Discount
+                    cards.
                   </p>
                   <Nav tabs className="px-2">
                     <NavItem>
